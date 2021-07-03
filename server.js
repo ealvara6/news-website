@@ -9,7 +9,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 app.use(cors());
 
-const routes = require('api/routes/mainRoutes');
+const routes = require('./api/Routes/mainRoutes');
 routes(app);
 
 app.use(express.static(path.resolve(__dirname, './frontend/build')));
