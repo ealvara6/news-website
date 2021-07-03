@@ -1,0 +1,23 @@
+const express = require('express');
+const PORT = process.env.PORT || 3001;
+const app = express();
+const cors = require('cors');
+const path = require('path');
+require("dotenv").config();
+
+app.use(express.urlencoded());
+app.use(express.json());
+app.use(cors());
+
+const routes = require('./api/routes/mainRoutes')
+routes(app);
+
+app.use(express.static(path.resolve(__dirname, './frontend/build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Server listening on ${PORT}`);
+})
