@@ -70,11 +70,11 @@ export default function Home(props) {
     return(
         <Box>
             {isLoaded ?
-            <Grid className={classes.root} container justify="center">
+            <Grid className={classes.root} container justify="center" xs={12}>
                 <Grid item xs={12}>
                     <Categories categories={categories} onClick={handleClick} />
                 </Grid>
-                <Grid item xs={10} className={classes.section}>
+                <Grid item xs={12} lg={10} className={classes.section}>
                         <MainCards categories={categories} data={info} showCategories={showCategories} />
                 </Grid>
             </Grid> : <Box display="flex" justifyContent="center" marginTop="150px"><CircularProgress /></Box>}
