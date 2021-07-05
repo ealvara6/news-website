@@ -29,10 +29,10 @@ export default function Home(props) {
     const classes = useStyles();
 
     useEffect(() => {
-        const data = {
+        var data = {
             region: localStorage.getItem("region") || "us",
-        };
-        axios.get("http://localhost:3001/api/homeNews", data)
+        }
+        axios.get(`/api/homeNews/${data.region}`)
         .then(res => {
             console.log(res.data);
             setInfo(res.data.data);
@@ -68,17 +68,16 @@ export default function Home(props) {
 
 
     return(
-        <>
+        <Box>
             {isLoaded ?
             <Grid className={classes.root} container justify="center">
-                {console.log(showCategories)}
                 <Grid item xs={12}>
                     <Categories categories={categories} onClick={handleClick} />
                 </Grid>
                 <Grid item xs={10} className={classes.section}>
-                    <MainCards categories={categories} data={info} showCategories={showCategories} />
+                        <MainCards categories={categories} data={info} showCategories={showCategories} />
                 </Grid>
             </Grid> : <Box display="flex" justifyContent="center" marginTop="150px"><CircularProgress /></Box>}
-        </>
+        </Box>
     )
 }

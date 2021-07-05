@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import LocationModal from './LocationModal';
+import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -36,7 +37,10 @@ export default function Header(props) {
         <>
             <AppBar position="static" className={classes.root}>
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title}>News</Typography>
+                    <IconButton>
+                        <img src="/Images/news.png" alt="Webiste Icon" />
+                    </IconButton>
+                    <Typography variant="h5" className={classes.title}>News</Typography>
                     {localStorage.getItem("region") ? <Button className={classes.location} onClick={() => handleModal()}>{localStorage.getItem("regionName")}</Button> : <Button className={classes.location} onClick={() => handleModal()}>Change Location</Button>}
                     {showModal ? <LocationModal open={true} onClose={handleClose} /> : null}
                 </Toolbar>

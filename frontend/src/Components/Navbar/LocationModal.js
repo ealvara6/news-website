@@ -80,8 +80,14 @@ export default function LocationModal(props) {
     }
 
     const handleSubmit = () => {
-        localStorage.setItem("region", region);
-        localStorage.setItem("regionName", regionName);
+        if(regionName === null){
+            localStorage.setItem("region", "us");
+            localStorage.setItem("regionName", "United States");
+        }
+        else{
+            localStorage.setItem("region", region);
+            localStorage.setItem("regionName", regionName);
+        }
         window.location = "/";
     }
 

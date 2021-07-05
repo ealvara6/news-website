@@ -24,7 +24,7 @@ export default function Category(props) {
     }
 
     return(
-        <Button className={classes.root} variant="contained" color={isClicked ? "primary" : "secondary"} onClick={() => handleClick()}>
+        <Button className={classes.root} variant="contained" color={isClicked ? "secondary" : "primary"} onClick={() => handleClick()}>
             <Typography variant="subtitle2">{category}</Typography>    
         </Button>
     )
