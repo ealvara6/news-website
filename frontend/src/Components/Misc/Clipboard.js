@@ -7,6 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
         position: "absolute",
+        [theme.breakpoints.down("xs")]: {
+            marginTop:  theme.spacing(42),
+        },
         marginTop: theme.spacing(48),
         marginLeft: theme.spacing(1),
     },
